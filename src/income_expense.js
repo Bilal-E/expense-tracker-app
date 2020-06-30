@@ -1,16 +1,17 @@
 import React from 'react'
+import {getIncome, getExpense} from './add_transaction.js'
 
-function Income_expense() {
+function IncomeExpense() {
 
     return (
       
         <div className = "box1">
              
-            <h3> INCOME: <br/> $100 </h3>
-            <h3> EXPENSE: <br /> $100 </h3>
+            <h3> INCOME: <br/> ${ getIncome() } </h3>
+            <h3> EXPENSE: <br /> ${ getExpense() } </h3>
 
         </div>
     );
 }
 
-export default Income_expense;
+export default IncomeExpense;
