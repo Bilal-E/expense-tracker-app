@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
-import AddTransaction from './add_transaction.js';
+import TransactionBody from './Body.js';
 import { TransProvider } from './transContext'
 
 function App() {
   
   return (
- 
+
    <div className = "App-container">
       
       <TransProvider>
       
-        <AddTransaction/>
+        <TransactionBody/>
         
       </TransProvider>
    

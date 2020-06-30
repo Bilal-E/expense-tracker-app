@@ -1,14 +1,15 @@
 .App-container {
-  background-color:lightgrey;
-  min-height: 550dinnerpx;
-  max-width: 400px;
+  background-color:whitesmoke;
+  min-height: 400px;
+  max-width: 320px;
   margin: 0 auto;
   box-shadow: 0 0 5px black;
-  font-family: Arial;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: black;
   margin-top: 30px;
-  padding: 15px 50px;
+  padding: 15px 35px;
   border: 100vmax black;
+  border-radius: 7px;
 }
 
 .center-align {
@@ -18,12 +19,12 @@
 .App-header{
   padding-top: 10px;
   padding-bottom: 15px;
-  font-size: calc(10px + 2.8vmin);
+  font-size: calc(10px + 2vmin);
 }
 
 .balance{
   padding-bottom: 10px;
-  font-size: calc(10px + 1vmin);
+  font-size: calc(10px + 0.8vmin);
 }
 
 .box1{
@@ -32,32 +33,72 @@
   background-color: whitesmoke;
   font-size: calc(10px + 0.6vmin);
   box-shadow: 0 0 5px black;
+  border-radius: 5px;
 }
 
-.box1 h3{
+.income{
 color: green;
 }
 
-.box1 h4{
+.expense{
 color: red;
 }
 
 .history-list{
 margin: 0;
 padding: 0;
+font-size: calc(10px + 0.63vmin);
 }
 
-.history-list li{
+.history-list li{ 
+position: relative;
 display: flex; 
 justify-content: space-between;
+font-size: calc(10px + 0.45vmin);
 box-shadow: 0 0 5px black;
+border-radius: 5px;
 padding: 10px 5px;
 background-color: white;
 margin: 5px 0;
 }
 
+.history-list li .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: initial;
+  border-radius: 6px;
+  padding: 5px 10px;
+  width: max-content;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -110px; 
+  position: absolute;
+  z-index: 1;
+}
+
+.history-list li .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.history-list li:hover .tooltiptext {
+  visibility:visible;
+}
+
 .trans input{
+  font-size: calc(10px + 0.45vmin);
   width: 100%;
   margin: 10px 0;
   padding: 5px 0;
+}
+
+.new-trans{
+font-size: calc(10px + 0.6vmin);
 }

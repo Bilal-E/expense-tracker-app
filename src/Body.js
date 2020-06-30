@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import transacContext from './transContext'
 
 
-function AddTransaction() {
+function TransactionBody() {
 
     let { transactions, AddTrans, DelTrans } = useContext(transacContext);
     let [newDesc, setDesc] = useState("");
@@ -73,8 +73,8 @@ function AddTransaction() {
         <h3 className="balance"> BALANCE: ${getIncome() + getExpense()} </h3>
 
         <div className="box1">
-            <h3> INCOME: <br /> ${getIncome()} </h3>
-            <h4> EXPENSE: <br /> ${getExpense()} </h4>
+            <h4 className="income"> INCOME: <br /> ${getIncome()} </h4>
+            <h4 className="expense"> EXPENSE: <br /> ${getExpense()} </h4>
         </div>
 
         <div className="history-list">
@@ -86,45 +86,47 @@ function AddTransaction() {
                 {transactions.map((transObj, idx) => {
                     return (
                 
-                        <li key={idx}>
+                        <li key={idx} onClick={() => DelTrans({ id: transObj.id })}>
                             
                             <span>{transObj.desc}</span>
 
                             <span>${transObj.amount}</span>
                             
-                            <button className="delete-btn" type="button" onClick={() => DelTrans({ id: transObj.id })}>x</button>
-                        
+                            <p className= "tooltiptext">Click on the transaction to delete</p>
+
                         </li>
                     );
                 })}
 
             </ul>
+            </div>
+            
+         <div className="new-trans">
+              
+                <h3> Add Transaction </h3><hr />
 
-            <h3>Add New Transaction</h3>
-            <hr />
 
-            <form className="trans" onSubmit={handleAddition} >
+                <form className="trans" onSubmit={handleAddition} >
 
-                <label>
-                    Enter Description <br />
-                    <input type="text"
-                        value={newDesc}
-                        placeholder="Enter Description"
-                        onChange={(ev) => setDesc(ev.target.value)} required />
-                </label>
+                    <label>
+                        Enter Description <br />
+                        <input type="text"
+                            value={newDesc}
+                            placeholder="name your transaction"
+                            onChange={(ev) => setDesc(ev.target.value)} required />
+                    </label>
 
-                <label>
-                    Enter Amount <br />
-                    <input type="number"
-                        value={newAmount}
-                        placeholder="Enter Amount"
-                        onChange={(ev) => setAmount(ev.target.value)} required />
-                </label>
-                <br />
+                    <label>
+                        Enter Amount <br />
+                        <input type="number"
+                            value={newAmount}
+                            onChange={(ev) => setAmount(ev.target.value)} required />
+                    </label>
+                    <br />
 
-                <input type="submit" value="Add Transaction" />
+                    <input type="submit" value="Add Transaction" />
 
-            </form>
+                </form>
 
         </div>
         </>
@@ -132,4 +134,4 @@ function AddTransaction() {
      );
 }
 
-export default AddTransaction; 
+export default TransactionBody; 
